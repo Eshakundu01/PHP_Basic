@@ -36,6 +36,7 @@
     }
   }
 
+  //Actual data is retrived after removing special characters,spaces,slashes
   function actual_data ($data) {
     $data = trim($data);
     $data = stripslashes($data);
