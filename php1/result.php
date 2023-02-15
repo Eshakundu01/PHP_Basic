@@ -15,6 +15,7 @@ session_start();
   <?php
   $full_name = $_SESSION["fullname"];
   $file_store = $_SESSION['file'];
+  $grade = $_SESSION['grade'];
   ?>
 
   <div class="container">
@@ -29,6 +30,25 @@ session_start();
       <?php
       echo $full_name;
       ?>
+      <table class="scores">
+        <tr>
+          <th>SL No.</th>
+          <th>SUBJECT</th>
+          <th>MARKS</th>
+        </tr>
+        <?php
+        $sn = 1;
+        foreach ($grade as $key=>$row) { ?>
+        <tr>
+          <td><?php echo $sn;?></td>
+          <?php foreach($row as $key2=>$cell) { ?>
+            <td><?php echo $cell;?></td>
+          <?php }?>
+        </tr>
+        <?php
+         $sn += 1; 
+        }?>
+      </table>
   </div>
 </body>
 </html>

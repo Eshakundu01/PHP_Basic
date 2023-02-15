@@ -11,6 +11,7 @@
     <li><a href="task1.php">Task1:viewing on same page</a></li>
     <li><a href="task1_session.php">Task1:viewing using session</a></li>
     <li><a href="task2.php">Task2:Uploading and viewing image</a></li>
+    <li><a href="task3.php">Task3:Making marksheet</a></li>
   </ul>
 </body>
 </html>
