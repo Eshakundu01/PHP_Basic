@@ -63,6 +63,7 @@ session_start();
     //Initialize variables for marks
     $marks = actual_data($_POST["score"]);
     $input = str_replace("\n"," ",$marks);
+    //Validate and created 2D array for marks
     if (!preg_match_all("/[A-Z][a-z]+\|[0-9]+$/",$input)) {
       $errors['grade_error'] = "Only subject|score format is allowed in individual line with capital letter in first";
     } else {
