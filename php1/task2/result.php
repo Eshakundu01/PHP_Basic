@@ -9,7 +9,7 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Preview</title>
-  <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" type="text/css" href="../css/style1.css">
 </head>
 <body>
   <?php
@@ -30,25 +30,6 @@ session_start();
       <?php
       echo $full_name;
       ?>
-      <table class="scores">
-        <tr>
-          <th>SL No.</th>
-          <th>SUBJECT</th>
-          <th>MARKS</th>
-        </tr>
-        <?php
-        $sn = 1;
-        foreach ($grade as $key=>$row) { ?>
-        <tr>
-          <td><?php echo $sn;?></td>
-          <?php foreach($row as $key2=>$cell) { ?>
-            <td><?php echo $cell;?></td>
-          <?php }?>
-        </tr>
-        <?php
-         $sn += 1; 
-        }?>
-      </table>
   </div>
 </body>
 </html>

@@ -10,17 +10,19 @@ session_start();
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHP_1</title>
-  <link rel="stylesheet" href="css/style1.css">
+  <link rel="stylesheet" type="text/css" href="../css/style1.css">
 </head>
 <body>
  
   <?php
   $first_name = "";
   $last_name = "";
-  $errors = array('fname_error' => '', 'lname_error' => '');
+  $errors = array('fname_error' => '', 'lname_error' => '','img_error' => '','grade_error' => '');
 
-  if (isset($_POST['submit'])) {
-    if (empty($_POST["fname"])) {
+  if (isset($_POST["submit"])) {
+
+    //Validates first and last name
+    if (empty($_POST["fname"])) {  
       $errors['fname_error'] = "Please enter your first name";
     } elseif (!preg_match("/^[a-zA-Z]*$/",$_POST["fname"])) {
       $errors['fname_error'] = "Only alphabets are allowed";
@@ -42,10 +44,49 @@ session_start();
 
     $full_name = $first_name . " " . $last_name;
 
+    //Initialized variables for image
+    $file_name = $_FILES["image"]["name"];
+    $file_size = $_FILES["image"]["size"];
+    $file_tmp_loc = $_FILES["image"]["tmp_name"];
+    $file_store = "uploads/".basename($file_name);
+    $imageType = strtolower(pathinfo($file_store,PATHINFO_EXTENSION));
+
+    //Validation of image file
+    if ($file_size > 500000) {
+      $errors['img_error'] = "File is too large, the size should be less than 500KB";
+    } elseif ($imageType != "jpg" && $imageType != "png" && $imageType != "jpeg") {
+      $errors['img_error'] = 'Only JPG, JPEG, PNG files are allowed';
+    } else {
+      move_uploaded_file($file_tmp_loc,$file_store);
+    }
+
+    //Initialize variables for marks
+    $subject = array();
+    $grade = array();
+    $marks = actual_data($_POST["score"]);
+    $lines = explode("\n",$marks);
+    //Validate and created 2D array for marks
+    foreach ($lines as $line) {
+      $input = trim($line);
+      if (!preg_match("/[A-Z][a-z]+\|[0-9]+$/",$input)) {
+        $errors['grade_error'] = "Only subject|score format is allowed in individual line with capital letter in first";
+      } else {
+        $pos = strpos($line,"|");
+        $course = substr($line,0,$pos);
+        $score = substr($line,$pos+1);
+        $score_int = (int)$score;
+        array_push($subject,$course);
+        array_push($grade,$score_int);
+      } 
+    }
+
     if (array_filter($errors)) {
       //echo "errors present";
-    } else {
+    } else{
+      $_SESSION['file'] = $file_store;
       $_SESSION['fullname'] = $full_name;
+      $_SESSION['subject'] = $subject;
+      $_SESSION['grade'] = $grade;
       header ("Location:result.php");
     }
   }
@@ -63,7 +104,7 @@ session_start();
     <div class="form1">
       <h1 class="head">WELCOME</h1>
       <h3 class="head2">Connect Us</h3>
-      <form method="post" action="task1_session.php">
+      <form method="post" action="task3.php" enctype="multipart/form-data">
         <label for="fname">First name:</label>
         <input type="text" id="fname" name="fname" class="input" required><br>
         <span class="error"><?php echo $errors['fname_error'];?></span><br>
@@ -72,12 +113,17 @@ session_start();
         <span class="error"><?php echo $errors['lname_error'];?></span><br>
         <label for="fullname">Full name:</label>
         <input type="text" id="fullname" name="fullname" class="input" disabled><br>
+        Upload image:<input type="file" name="image" id="image" class="upload"><br>
+        <span class="error"><?php echo $errors['img_error'];?></span><br>
+        <label for="score" class="label">Marks:</label>
+        <textarea name="score" id="score" cols="60" rows="10" placeholder="Enter marks here"></textarea><br>
+        <span class="error"><?php echo $errors['grade_error'];?></span><br>
         <button type="submit" name="submit" class="btn">Submit</button>
       </form>
     </div>
   </div>
 
-  <script>
+  <script type=text/javascript>
     document.getElementById('fname').addEventListener("keyup", myFunction);
     document.getElementById('lname').addEventListener("keyup", myFunction);
 

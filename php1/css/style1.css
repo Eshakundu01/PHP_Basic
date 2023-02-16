@@ -1,24 +1,24 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    width: 900px;
-    margin: 0 auto;
+  width: 900px;
+  margin: 0 auto;
 }
 
 .form1 {
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: 5px 5px 10px gray;
-    text-align: center;
-    padding: 15px;
-    margin-top: 20px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px gray;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
 }
 
 .head {
