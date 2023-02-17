@@ -14,7 +14,8 @@ session_start();
 </head>
 <body>
   <?php
-  require("../class.php");
+  require("../name.php");
+  require("../image.php");
   ?>
  
   <?php

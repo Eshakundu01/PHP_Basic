@@ -14,7 +14,9 @@ session_start();
 </head>
 <body>
   <?php
-  require('../class.php');
+  require('../name.php');
+  require('../image.php');
+  require('../number.php');
   ?>
   <?php
   $first_name = "";
@@ -70,7 +72,7 @@ session_start();
     $phone_code = actual_data($_POST["code"]);
     $contact = actual_data($_POST["number"]);
     $num_obj = new Number();  //Initialized an object for Number class
-    $errors['phone_error'] = $num_obj->check($phone_code,$contact);
+    $errors['phone_error'] = $num_obj->checkNumber($phone_code,$contact);
     if ($errors['phone_error']  ==  false) {
       $phone_number = $num_obj->contactNumber($phone_code,$contact);
     }

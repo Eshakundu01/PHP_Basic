@@ -14,7 +14,10 @@ session_start();
 </head>
 <body>
   <?php
-  require("../class.php")
+  require("../name.php");
+  require("../image.php");
+  require("../number.php");
+  require("../mail.php");
   ?>
 
   <?php
@@ -70,7 +73,7 @@ session_start();
     $phone_code = actual_data($_POST["code"]);
     $contact = actual_data($_POST["number"]);
     $num_obj = new Number();  //Initialized an object for Number class
-    $errors['phone_error'] = $num_obj->check($phone_code, $contact);
+    $errors['phone_error'] = $num_obj->checkNumber($phone_code, $contact);
     if  ($errors['phone_error']  ==	 false)	{
       $phone_number = $num_obj->contactNumber($phone_code, $contact);
     }
@@ -80,7 +83,7 @@ session_start();
     $mail_obj = new Mail($email);
     $errors['mail_error'] = $mail_obj->errorCheck();
     if  ($errors['mail_error'] 	==	false)	{
-			$errors['mail_error']	=	$mail_obj->verify();
+			$errors['mail_error']	=	$mail_obj->verifyMail();
 		}
     
 

@@ -14,6 +14,8 @@ session_start();
 </head>
 <body>
   <?php
+  require("../name.php");
+  require("../image.php");
   class Marks {
     public $lines;
   }
