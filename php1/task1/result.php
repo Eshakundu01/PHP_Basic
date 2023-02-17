@@ -28,6 +28,7 @@ session_start();
       <?php
       echo $full_name;
       ?>
+    </div>
   </div>
 </body>
 </html>

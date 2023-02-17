@@ -42,19 +42,14 @@
       <li><a href="task2/task2.php">Task2</a></li>
       <li><a href="task3/task3.php">Task3</a></li>
       <li><a href="task4/task4.php">Task4</a></li>
-      <li><a href="task5/task5.php">Task5</a></li>
-      <li><a href="task6/task6.php">Task6</a></li>
-      <li><a href="task7/task7.php">Task7</a></li>
     </ul>
     <ul class="list">
       <li><h2>Using OOPS</h2></li>
       <li><a href="task_oops/task1/task1_session.php">Task1</a></li>
       <li><a href="task_oops/task2/task2.php">Task2</a></li>
-      <li><a href="task_oops/task3/task3.php">Task3</a></li>
       <li><a href="task_oops/task4/task4.php">Task4</a></li>
       <li><a href="task_oops/task5/task5.php">Task5</a></li>
       <li><a href="task_oops/task6/task6.php">Task6</a></li>
-      <li><a href="task_oops/task7/task7.php">Task7</a></li>
     </ul>
   </div>
 </body>

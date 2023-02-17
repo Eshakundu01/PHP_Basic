@@ -1,0 +1,100 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.form1 {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px gray;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.head {
+  margin-bottom: 20px;
+  font-size: 45px;
+  color: #007a82;
+}
+
+.head2 {
+  margin: 15px 0;
+  color: #649fa3;
+}
+
+.input {
+  margin: 15px 0;
+  padding: 5px;
+  width: 50%;
+}
+
+.btn {
+  background-color: #007a82;
+  border-radius: 45px;
+  color: white;
+  font-size: 15px;
+  padding: 15px 25px;
+  border: none;
+  cursor: pointer;
+}
+
+.error {
+  color: rgb(226, 22, 22);
+}
+
+.result {
+  background-color: #5bc0de;
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.upload {
+  border: 1px solid grey;
+  width: 50%;
+  margin: 15px 5px;
+  padding: 5px;
+}
+
+.label {
+  position: relative;
+  top: -85px;
+}
+
+.scores,.scores th,.scores td {
+  border: 2px solid black;
+  border-collapse: collapse;
+  margin: 10px auto;
+  padding: 10px 50px;
+}
+
+.scores th {
+  background-color: rgb(53, 250, 184);
+}
+
+.code {
+  padding: 5px;
+  width: 5%;
+}
+
+.success {
+  color: rgb(38, 173, 38);
+}
+
+.generate {
+  color: white;
+  border: none;
+  background-color: #007a82;
+  padding: 10px;
+  cursor: pointer;
+}

@@ -49,7 +49,7 @@ session_start();
     $file_name = $_FILES["image"]["name"];
     $file_size = $_FILES["image"]["size"];
     $file_tmp_loc = $_FILES["image"]["tmp_name"];
-    $file_store = "uploads/".basename($file_name);
+    $file_store = "../uploads/".basename($file_name);
     $imageType = strtolower(pathinfo($file_store,PATHINFO_EXTENSION));
 
     //Validation of image file

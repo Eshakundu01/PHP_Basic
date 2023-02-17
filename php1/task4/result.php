@@ -51,6 +51,7 @@ session_start();
          $sn += 1; 
         }?>
       </table>
+    </div>
   </div>
 </body>
 </html>

@@ -45,11 +45,14 @@ session_start();
     $full_name = $first_name . " " . $last_name;
 
     //Initialized variables for image
+    $file = $_FILES["image"];
     $file_name = $_FILES["image"]["name"];
     $file_size = $_FILES["image"]["size"];
     $file_tmp_loc = $_FILES["image"]["tmp_name"];
-    $file_store = "uploads/".basename($file_name);
+    $file_dir = "../uploads/";
+    $file_store = $file_dir.basename($file_name);
     $imageType = strtolower(pathinfo($file_store,PATHINFO_EXTENSION));
+    print_r($file);
 
     //Validation of image file
     if ($file_size > 500000) {
