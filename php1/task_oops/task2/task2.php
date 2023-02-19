@@ -25,14 +25,14 @@ session_start();
     $first_name = $_POST["fname"];
     $last_name = $_POST["lname"];
     $name = new Name();
-    //Validating name
+    // Validating name
     $errors['fname_error'] = $name->checkName($first_name);
     $errors['lname_error'] = $name->checkName($last_name);
     if ($errors['fname_error'] == false and $errors['lname_error'] == false) {
       $full_name = $name->fullName($first_name,$last_name);
     }
 
-    //Initialized variables for image
+    // Initialized variables for image
     $file_name = $_FILES["image"]["name"];
     $file_size = $_FILES["image"]["size"];
     $file_tmp_loc = $_FILES["image"]["tmp_name"];
@@ -45,7 +45,7 @@ session_start();
     }
 
     if (array_filter($errors)) {
-      //echo "errors present";
+      // echo "errors present";
     } else{
       $_SESSION['file'] = $file_store;
       $_SESSION['fullname'] = $full_name;
@@ -53,7 +53,7 @@ session_start();
     }
   }
 
-  //Actual data is retrived after removing special characters,spaces,slashes
+  // Actual data is retrived after removing special characters,spaces,slashes
   function actual_data ($data) {
     $data = trim($data);
     $data = stripslashes($data);

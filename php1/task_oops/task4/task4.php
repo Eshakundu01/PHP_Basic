@@ -16,6 +16,7 @@ session_start();
   <?php
   require('../name.php');
   require('../image.php');
+  require("../marks.php");
   require('../number.php');
   ?>
   <?php
@@ -29,14 +30,14 @@ session_start();
     $first_name = $_POST["fname"];
     $last_name = $_POST["lname"];
     $name = new Name();
-    //Validating name
+    // Validating name
     $errors['fname_error'] = $name->checkName($first_name);
     $errors['lname_error'] = $name->checkName($last_name);
     if ($errors['fname_error'] == false and $errors['lname_error'] == false) {
       $full_name = $name->fullName($first_name,$last_name);
     }
 
-    //Initialized variables for image
+    // Initialized variables for image
     $file_name = $_FILES["image"]["name"];
     $file_size = $_FILES["image"]["size"];
     $file_tmp_loc = $_FILES["image"]["tmp_name"];
@@ -48,37 +49,28 @@ session_start();
       $file_store = $upload->storeImage();
     }
 
-    //Initialize variables for marks
-    $subject = array();
-    $grade = array();
+    // Creating object for marks and checking it and dividing the string into
+    // two arrays
     $marks = actual_data($_POST["score"]);
-    $lines = explode("\n",  $marks);
-    //Validate and created 2D array for marks
-    foreach ($lines as $line) {
-      $input = trim($line);
-      if  (!preg_match("/[A-Z][a-z]+\|[0-9]+$/", $input)) {
-        $errors['grade_error'] = "Only subject|score format is allowed in individual line with capital letter in first";
-      } else {
-        $pos = strpos($line,"|");
-        $course = substr($line, 0, $pos);
-        $score = substr($line, $pos+1);
-        $score_int = (int)$score;
-        array_push($subject, $course);
-        array_push($grade, $score_int);
-      } 
+    $score  = new Marks($marks);
+    $errors['grade_error']  = $score->checkPattern();
+    if  ($errors['grade_error'] ==  false)  {
+      $subject  = $score->subjectArray();
+      $grade  = $score->marksArray();
     }
 
-    //For number
+    // For number
     $phone_code = actual_data($_POST["code"]);
     $contact = actual_data($_POST["number"]);
-    $num_obj = new Number();  //Initialized an object for Number class
-    $errors['phone_error'] = $num_obj->checkNumber($phone_code,$contact);
+    // Initialized an object for Number class
+    $num_obj = new Number();
+    $errors['phone_error'] = $num_obj->checkNumber($phone_code, $contact);
     if ($errors['phone_error']  ==  false) {
-      $phone_number = $num_obj->contactNumber($phone_code,$contact);
+      $phone_number = $num_obj->contactNumber($phone_code, $contact);
     }
 
     if (array_filter($errors)) {
-      //echo "errors present";
+      // echo "errors present";
     } else{
       $_SESSION['file']  =  $file_store;
       $_SESSION['fullname']  =  $full_name;
@@ -89,7 +81,7 @@ session_start();
     }
   }
 
-  //Actual data is retrived after removing special characters,spaces,slashes
+  // Actual data is retrived after removing special characters,spaces,slashes
   function actual_data ($data) {
     $data = trim($data);
     $data = stripslashes($data);

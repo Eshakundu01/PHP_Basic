@@ -81,3 +81,143 @@ body {
 .scores th {
   background-color: rgb(53, 250, 184);
 }
+
+.list {
+  background-color: rgb(228, 200, 164);
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin-bottom: 0;
+}
+
+.list:not(:first-child) {
+  margin-top: 0;
+}
+
+.list li {
+  padding: 20px;
+}
+
+.list li a{
+  padding: 10px 25px;
+  background-color: orange;
+  border-radius: 15px;
+  text-decoration: none;
+  color: white;
+  font-size: 40px;
+}
+
+.login {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px gray;
+  text-align: center;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.code {
+  width: 5%;
+  padding: 5px;
+}
+
+.reset {
+  color: blue;
+  display: flex;
+  justify-content: end;
+  padding-right: 20%;
+  text-decoration: none;
+}
+
+.loginbtn {
+  background-color: #0e77da;
+  border-radius: 45px;
+  color: white;
+  font-size: 15px;
+  padding: 15px 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.join {
+  padding: 10px;
+  display: inline-block;
+}
+
+.register {
+  color: rgb(173, 1, 1);
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  width: 20%;
+  padding: 20px;
+  background: linear-gradient(chocolate,brown);
+}
+
+.content {
+  text-align: center;
+}
+
+.navigation {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.pic {
+  mix-blend-mode: multiply;
+}
+
+.nav  {
+  color: cornsilk;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 25px;
+}
+
+.logout {
+  color: rgb(168, 6, 6);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+.flexbox  {
+  width: 80%;
+}
+
+.searchbox {
+  box-shadow: 0 3px 5px #000000;
+  padding: 25px;
+}
+
+.find {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+}
+
+.search {
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding: 10px;
+  border-right: none;
+}
+
+.btn-2 {
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background-color: burlywood;
+  padding: 10px;
+  font-size: 15px;
+  color: #000000;
+  border-right: none;
+}
