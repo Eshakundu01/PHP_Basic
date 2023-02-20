@@ -14,8 +14,6 @@ session_start();
 <body>
   <?php
   $full_name = $_SESSION["fullname"];
-  $file_store = $_SESSION['file'];
-  $grade = $_SESSION['grade'];
   ?>
 
   <div class="container">

@@ -1,5 +1,11 @@
 <?php
 session_start();
+if  ($_SESSION['user'] == "")  {
+  if  (!isset($_SESSION['username']))  {
+    header('Location:../../login.php');
+    $_SESSION['question']  =  "Q4";
+  }
+}
 ?>
 
 <!DOCTYPE html>

@@ -157,13 +157,14 @@ body {
 }
 
 .sidebar {
-  width: 20%;
+  width: 200px;
   padding: 20px;
   background: linear-gradient(chocolate,brown);
 }
 
 .content {
   text-align: center;
+  margin: 0 auto;
 }
 
 .navigation {
@@ -180,6 +181,11 @@ body {
   text-decoration: none;
   padding: 10px;
   font-size: 25px;
+  line-height: 50px;
+}
+
+.log  {
+  color: orange;
 }
 
 .logout {
@@ -191,18 +197,13 @@ body {
 }
 
 .flexbox  {
-  width: 80%;
-}
-
-.searchbox {
-  box-shadow: 0 3px 5px #000000;
-  padding: 25px;
+  width: 800px;
 }
 
 .find {
   display: flex;
   flex-wrap: wrap;
-  justify-content: end;
+  justify-content: center;
 }
 
 .search {

@@ -1,5 +1,11 @@
 <?php
 session_start();
+if  ($_SESSION['user'] == "")  {
+  if  (!isset($_SESSION['username']))  {
+    header('Location:../login.php');
+    $_SESSION['question']  =  "q1b";
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -15,6 +21,8 @@ session_start();
 <body>
  
   <?php
+  $_SESSION['question'] = "q1b";
+
   $first_name = "";
   $last_name = "";
   $errors = array('fname_error' => '', 'lname_error' => '');

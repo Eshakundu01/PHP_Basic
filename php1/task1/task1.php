@@ -1,3 +1,13 @@
+<?php
+session_start();
+if  ($_SESSION['user'] == "")  {
+  if  (!isset($_SESSION['username']))  {
+    header('Location:../login.php');
+    $_SESSION['question']  =  "q1a";
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   
@@ -47,6 +57,7 @@
     $data = htmlspecialchars($data);
     return($data);
   }
+
   ?>
 
   <div class=container>
