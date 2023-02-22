@@ -1,13 +1,3 @@
-<?php
-session_start();
-if  ($_SESSION['user'] == "")  {
-  if  (!isset($_SESSION['username']))  {
-    header('Location:../../login.php');
-    $_SESSION['question']  =  "Q5";
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   
@@ -20,90 +10,9 @@ if  ($_SESSION['user'] == "")  {
 </head>
 <body>
   <?php
-  require("../name.php");
-  require("../image.php");
-  require("../marks.php");
-  require("../number.php");
-  require("../mail.php");
-  ?>
+  
+  require 'emailvalidation.php';
 
-  <?php
-  $errors = array('fname_error' => '',  'lname_error' => '', 'img_error' => '',
-  'grade_error' => '', 'phone_error' => '',  'mail_error' => '');
-
-  if (isset($_POST["submit"])) {
-
-    $first_name = $_POST["fname"];
-    $last_name = $_POST["lname"];
-    $name = new Name();
-    // Validating name
-    $errors['fname_error'] = $name->checkName($first_name);
-    $errors['lname_error'] = $name->checkName($last_name);
-    if ($errors['fname_error'] == false and $errors['lname_error'] == false) {
-      $full_name = $name->fullName($first_name, $last_name);
-    }
-
-    // Initialized variables for image
-    $file_name = $_FILES["image"]["name"];
-    $file_size = $_FILES["image"]["size"];
-    $file_tmp_loc = $_FILES["image"]["tmp_name"];
-    $file_dir = "../uploads/";
-
-    $upload = new Image($file_size, $file_name, $file_dir, $file_tmp_loc);
-    $errors['img_error'] = $upload->checkImage();
-    if ($errors['img_error'] == false) {
-      $file_store = $upload->storeImage();
-    }
-
-    // Creating object for marks and checking it and dividing the string into
-    // two arrays
-    $marks = actual_data($_POST["score"]);
-    $score  = new Marks($marks);
-    $errors['grade_error']  = $score->checkPattern();
-    if  ($errors['grade_error'] ==  false)  {
-      $subject  = $score->subjectArray();
-      $grade  = $score->marksArray();
-    }
-    
-    // For number
-    $phone_code = actual_data($_POST["code"]);
-    $contact = actual_data($_POST["number"]);
-    //Initialized an object for Number class
-    $num_obj = new Number();
-    $errors['phone_error'] = $num_obj->checkNumber($phone_code, $contact);
-    if  ($errors['phone_error']  ==	 false)	{
-      $phone_number = $num_obj->contactNumber($phone_code, $contact);
-    }
-
-    // For mail
-    $email = actual_data($_POST["mail"]);
-    $mail_obj = new Mail($email);
-    $errors['mail_error'] = $mail_obj->errorCheck();
-    if  ($errors['mail_error'] 	==	false)	{
-			$errors['mail_error']	=	$mail_obj->verifyMail();
-		}
-    
-
-    if  (array_filter($errors)) {
-      // echo "prints errors after submit";
-    } else {
-      $_SESSION['file'] = $file_store;
-      $_SESSION['fullname'] = $full_name;
-      $_SESSION['grade'] = $grade;
-      $_SESSION['subject'] = $subject;
-      $_SESSION['ph_no'] = $phone_number;
-      header ("refresh:2; url=final_page.php");
-      echo '<script type="text/javascript">alert("Valid email format provided!");</script>';
-    }
-  }
-
-  // Actual data is retrived after removing special characters,spaces,slashes
-  function  actual_data ($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return($data);
-  }
   ?>
 
   <div class=container>

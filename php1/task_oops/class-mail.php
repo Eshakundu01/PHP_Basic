@@ -1,14 +1,28 @@
 <?php
-/*Validating the email Id using the API first then if the email
-is valid using session the email is send to final page orelse displaying error*/ 
+/**
+ * Validating the email Id then verifying the email
+ * 
+ */ 
 class Mail {
   public $mail;
 
+  /**
+   * 
+   * Constructor
+   *
+   * @param string $mail
+   *
+   */
   public function __construct($mail) {
     $this->mail = $mail;
   }
 
-  // Checking the email pattern without API
+  /**
+   * 
+   * Checking the email pattern without API
+   *
+   * @return string
+   */
   public function errorCheck(): string {
     if (empty($this->mail)) {
       $msg = "Email cannot be empty";
@@ -20,7 +34,12 @@ class Mail {
     return "";
   }
 
-  // Checking the email Id with the provided API
+  /**
+   * 
+   * Checking the email Id with the provided API
+   *
+   * @return mixed
+   */
   public function verifyMail(): mixed {
     $curl = curl_init();
     curl_setopt_array($curl, array(
@@ -50,4 +69,5 @@ class Mail {
     curl_close($curl);
   }
 }
+
 ?>

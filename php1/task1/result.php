@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -12,10 +14,6 @@ session_start();
   <link rel="stylesheet" type="text/css" href="../css/style1.css">
 </head>
 <body>
-  <?php
-  $full_name = $_SESSION["fullname"];
-  ?>
-
   <div class="container">
     <div class="result">
       <h2>
@@ -24,7 +22,7 @@ session_start();
         ?>
       </h2>
       <?php
-      echo $full_name;
+      echo $_SESSION["fullname"];
       ?>
     </div>
   </div>

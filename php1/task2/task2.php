@@ -1,13 +1,3 @@
-<?php
-session_start();
-if  ($_SESSION['user'] == "")  {
-  if  (!isset($_SESSION['username']))  {
-    header('Location:../login.php');
-    $_SESSION['question']  =  "q2";
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   
@@ -19,74 +9,12 @@ if  ($_SESSION['user'] == "")  {
   <link rel="stylesheet" type="text/css" href="../css/style1.css">
 </head>
 <body>
- 
   <?php
-  $first_name = "";
-  $last_name = "";
-  $errors = array('fname_error' => '', 'lname_error' => '','img_error' => '');
 
-  if (isset($_POST["submit"])) {
-
-    //Validates first and last name
-    if (empty($_POST["fname"])) {  
-      $errors['fname_error'] = "Please enter your first name";
-    } elseif (!preg_match("/^[a-zA-Z]*$/",$_POST["fname"])) {
-      $errors['fname_error'] = "Only alphabets are allowed";
-    } elseif (strlen($_POST["fname"]) >= 35) {
-      $errors['fname_error'] = "First name can contain maximum 35 letters";
-    } else {
-      $first_name = actual_data($_POST["fname"]);
-    }
-
-    if (empty($_POST["lname"])) {
-      $errors['lname_error'] = "Please enter your last name";
-    } elseif (!preg_match("/^[a-zA-Z]*$/",$_POST["lname"])) {
-      $errors['lname_error'] = "Only alphabets are allowed";
-    } elseif (strlen($_POST["lname"]) >= 35) {
-      $errors['lname_error'] = "Last name can contain maximum 35 letters";
-    } else {
-      $last_name = actual_data($_POST["lname"]);
-    }
-
-    $full_name = $first_name . " " . $last_name;
-
-    //Initialized variables for image
-    $file = $_FILES["image"];
-    $file_name = $_FILES["image"]["name"];
-    $file_size = $_FILES["image"]["size"];
-    $file_tmp_loc = $_FILES["image"]["tmp_name"];
-    $file_dir = "../uploads/";
-    $file_store = $file_dir.basename($file_name);
-    $imageType = strtolower(pathinfo($file_store,PATHINFO_EXTENSION));
-    print_r($file);
-
-    //Validation of image file
-    if ($file_size > 500000) {
-      $errors['img_error'] = "File is too large, the size should be less than 500KB";
-    } elseif ($imageType != "jpg" && $imageType != "png" && $imageType != "jpeg") {
-      $errors['img_error'] = 'Only JPG, JPEG, PNG files are allowed';
-    } else {
-      move_uploaded_file($file_tmp_loc,$file_store);
-    }
-
-    if (array_filter($errors)) {
-      //echo "errors present";
-    } else{
-      $_SESSION['file'] = $file_store;
-      $_SESSION['fullname'] = $full_name;
-      header ("Location:result.php");
-    }
-  }
-
-  //Actual data is retrived after removing special characters,spaces,slashes
-  function actual_data ($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return($data);
-  }
+  require 'validate2.php';
+  
   ?>
-
+  
   <div class=container>
     <div class="form1">
       <h1 class="head">WELCOME</h1>

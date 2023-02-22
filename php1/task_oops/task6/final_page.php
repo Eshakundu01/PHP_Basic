@@ -1,5 +1,20 @@
 <?php
+
 session_start();
+
+//Getting data from form
+$file_store = $_SESSION['file'];
+$grade = $_SESSION['grade'];
+$subject = $_SESSION['subject'];
+
+//Sending data to PDF page
+$_SESSION["name"] = $_SESSION["fullname"];
+$_SESSION['img'] = $file_store;
+$_SESSION['marks'] = $grade;
+$_SESSION['course'] = $subject;
+$_SESSION['phone']  = $_SESSION['ph_no'];
+$_SESSION['email'] = $_SESSION['emailId'];
+
 ?>
 
 <!DOCTYPE html>
@@ -12,38 +27,19 @@ session_start();
   <link rel="stylesheet" type="text/css" href="../css/style2.css">
 </head>
 <body>
-  <?php
-  //Getting data from form
-  $full_name = $_SESSION["fullname"];
-  $file_store = $_SESSION['file'];
-  $grade = $_SESSION['grade'];
-  $subject = $_SESSION['subject'];
-  $phone_number = $_SESSION['ph_no'];
-  $mail = $_SESSION['emailId'];
-
-  //Sending data to PDF page
-  $_SESSION["name"] = $full_name;
-  $_SESSION['img'] = $file_store;
-  $_SESSION['marks'] = $grade;
-  $_SESSION['course'] = $subject;
-  $_SESSION['phone']  = $phone_number;
-  $_SESSION['email'] = $mail;
-  ?>
-
   <div class="container">
     <div class="result">
       <h2>
         <?php
-        //Viewing image file
         echo "<img src='$file_store' style='width:150px;height:150px; border-radius:50%'><br>"; 
         echo "Hello!\n";
         ?>
       </h2>
       <h3>
         <?php
-        echo $full_name . "<br><br>";
-        echo $phone_number . "<br><br>";
-        echo $mail . "<br>";
+        echo $_SESSION["fullname"] . "<br><br>";
+        echo $_SESSION['ph_no'] . "<br><br>";
+        echo $_SESSION['emailId'] . "<br>";
         ?>
       </h3>
       <table class="scores">

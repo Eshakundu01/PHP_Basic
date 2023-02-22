@@ -222,3 +222,8 @@ body {
   color: #000000;
   border-right: none;
 }
+
+.get-query  {
+  padding-top: 20%;
+  text-align: center;
+}

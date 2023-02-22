@@ -1,12 +1,28 @@
 <?php
+/**
+ * Validating the marks and separates into two array
+ * 
+ */ 
 class Marks {
   public  $marks;
 
+  /**
+   * 
+   * Constructor
+   *
+   * @param string $marks
+   * 
+   */
   public function __construct($marks) {
     $this->marks  =  $marks;
   }
 
-  // Check the pattern of the inputed marks if incorrect returns a message
+  /**
+   * 
+   * Check the pattern of the inputed marks if incorrect returns a message
+   *
+   * @return string
+   */
   public function checkPattern(): string  {
     $lines  =  explode("\n",$this->marks);
     foreach ($lines as $line) {
@@ -18,7 +34,12 @@ class Marks {
     return "";
   }
 
-  // Storing the subjects name in an array
+  /**
+   * 
+   * Storing the subjects name in an array
+   *
+   * @return array
+   */
   public function subjectArray(): array  {
     $lines  =  explode("\n",$this->marks);
     foreach ($lines as $line)  {
@@ -29,7 +50,12 @@ class Marks {
     return $course;
   }
 
-  // Storing the marks in integer format in an array
+  /**
+   * 
+   * Storing the marks in integer format in an array
+   *
+   * @return array
+   */
   public function marksArray(): array  {
     $lines  =  explode("\n",$this->marks);
     foreach ($lines as $line)  {
@@ -41,4 +67,5 @@ class Marks {
     return $grade;
   }
 }
+
 ?>

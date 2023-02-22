@@ -1,5 +1,11 @@
 <?php
+
 session_start();
+
+$file_store = $_SESSION['file'];
+$grade = $_SESSION['grade'];
+$subject  =  $_SESSION['subject'];
+
 ?>
 
 <!DOCTYPE html>
@@ -12,27 +18,18 @@ session_start();
   <link rel="stylesheet" type="text/css" href="../css/style2.css">
 </head>
 <body>
-  <?php
-  $full_name = $_SESSION["fullname"];
-  $file_store = $_SESSION['file'];
-  $grade = $_SESSION['grade'];
-  $subject  =  $_SESSION['subject'];
-  $phone_number = $_SESSION['ph_no'];
-  ?>
-
   <div class="container">
     <div class="result">
       <h2>
         <?php
-        //Viewing image file
         echo "<img src='$file_store' style='width:150px;height:150px; border-radius:50%'><br>"; 
         echo "Hello!\n";
         ?>
       </h2>
       <h3>
         <?php
-        echo $full_name . "<br>";
-        echo $phone_number . "<br>";
+        echo $_SESSION["fullname"] . "<br>";
+        echo $_SESSION['ph_no'] . "<br>";
         ?>
       </h3>
       <table class="scores">

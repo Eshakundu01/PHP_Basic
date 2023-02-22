@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,19 +9,8 @@ session_start();
 </head>
 <body>
   <?php
-  $user  =  "";
-  
-  if  (isset($_GET['login']))  {
-    $user  =  $_SESSION['userid'];
-  }
 
-  if  (isset($_GET['logout'])) {  
-    header("refresh:1; url=index.php");
-    $user = "";
-  }
-
-  $_SESSION['user']  =  $user;
-
+  require 'validateuser.php';
 
   ?>
 
@@ -32,12 +18,12 @@ session_start();
     <div class="sidebar">
       <div class="content">
         <img src="image/user.png" alt="userpic" class="pic" width=150 height=150>
-        <h3><?php echo $user;?></h3>
+        <h3><?php echo $user; ?></h3>
         <ul class="navigation">
           <li><a href="index.php" class="nav">Home</a></li>
           <li><a href="profile.php" class="nav">Profile</a></li>
           <li><a href="query.php" class="nav">Query</a></li>
-          <li><a href="login.php" class="nav log">LOGIN</a></li>
+          <li><a href="login/login.php" class="nav log">LOGIN</a></li>
           <li><a href="logout.php?logout" class="nav logout">LOGOUT</a></li>
         </ul>
       </div>

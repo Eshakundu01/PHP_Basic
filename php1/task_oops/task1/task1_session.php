@@ -1,13 +1,3 @@
-<?php
-session_start();
-if  ($_SESSION['user'] == "")  {
-  if  (!isset($_SESSION['username']))  {
-    header('Location:../../login.php');
-    $_SESSION['question']  =  "Q1";
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   
@@ -20,40 +10,10 @@ if  ($_SESSION['user'] == "")  {
 </head>
 <body>
   <?php
-  require("../name.php")
+
+  require 'namevalidation.php';
+  
   ?>  
-
-  <?php
-  $errors = array('fname_error' => '', 'lname_error' => '');
-
-  if (isset($_POST['submit'])) {
-    
-    $first_name = $_POST["fname"];
-    $last_name = $_POST["lname"];
-    $name = new Name();
-    //Validating name
-    $errors['fname_error'] = $name->checkName($first_name);
-    $errors['lname_error'] = $name->checkName($last_name);
-    if ($errors['fname_error'] == false and $errors['lname_error'] == false) {
-      $full_name = $name->fullName($first_name,$last_name);
-    }
-
-    if (array_filter($errors)) {
-      //echo "errors present";
-    } else {
-      $_SESSION['fullname'] = $full_name;
-      header ("Location:final_page.php");
-    }
-  }
-
-  //Actual data is retrived after removing special characters,spaces,slashes
-  function actual_data ($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return($data);
-  }
-  ?>
 
   <div class=container>
     <div class="form1">
@@ -63,11 +23,14 @@ if  ($_SESSION['user'] == "")  {
         <label for="fname">First name:</label>
         <input type="text" id="fname" name="fname" class="input" required><br>
         <span class="error"><?php echo $errors['fname_error'];?></span><br>
+
         <label for="lname">Last name:</label>
         <input type="text" id="lname" name="lname" class="input" required><br>
         <span class="error"><?php echo $errors['lname_error'];?></span><br>
+
         <label for="fullname">Full name:</label>
         <input type="text" id="fullname" name="fullname" class="input" disabled><br>
+        
         <button type="submit" name="submit" class="btn">Submit</button>
       </form>
     </div>
