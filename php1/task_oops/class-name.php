@@ -9,6 +9,7 @@ class Name {
    * 
    * Validates the pattern, length and characters in the name
    *
+   * @param string $name
    * @return string
    */
   public function checkName($name): string {
@@ -29,6 +30,8 @@ class Name {
    * 
    * Concatenates first name and last name
    *
+   * @param string $fname
+   * @param string $lname
    * @return string
    */
   public function fullName($fname, $lname): string {

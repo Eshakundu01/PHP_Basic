@@ -8,7 +8,8 @@ class Number {
   /**
    * 
    * Validates the code for number and the length of the number
-   *
+   * @param string $code
+   * @param string $phone
    * @return string
    */
   public function checkNumber($code, $phone): string {
@@ -29,6 +30,8 @@ class Number {
    * 
    * Concatenates the phone code with the phone number
    *
+   * @param string $code
+   * @param string $phone
    * @return string
    */
   public function contactNumber($code, $phone): string {

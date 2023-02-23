@@ -20,7 +20,7 @@
     <div class="form1">
       <h1 class="head">WELCOME</h1>
       <h3 class="head2">Connect Us</h3>
-      <form method="post" action="task3.php" enctype="multipart/form-data">
+      <form method="post" action="task4.php" enctype="multipart/form-data">
         <label for="fname">First name:</label>
         <input type="text" id="fname" name="fname" class="input" required><br>
         <span class="error"><?php echo $errors['fname_error'];?></span><br>
