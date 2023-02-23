@@ -69,6 +69,11 @@ if (isset($_POST['submit'])) {
         header("Location:../task_oops/task6/task6.php");
         break;
 
+      case "Q6a":
+        $_SESSION['username'] = $user;
+        header("Location:../task_oops/task6_composer/task6.php");
+        break;
+
       default:
         $_SESSION['userid']  =  $user;
         header("Location:../index.php");

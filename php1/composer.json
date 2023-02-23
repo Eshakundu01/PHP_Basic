@@ -1,0 +1,6 @@
+{
+    "require": {
+        "setasign/fpdf": "^1.8",
+        "guzzlehttp/guzzle": "^7.5"
+    }
+}

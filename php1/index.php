@@ -49,6 +49,7 @@
             <li><a href="task_oops/task4/task4.php">Task4</a></li>
             <li><a href="task_oops/task5/task5.php">Task5</a></li>
             <li><a href="task_oops/task6/task6.php">Task6</a></li>
+            <li><a href="task_oops/task6_composer/task6.php">Task6a</a></li>
           </ul>
         </div>
       </div>

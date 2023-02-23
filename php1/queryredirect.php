@@ -49,6 +49,10 @@ if ($_SESSION['user'] != "") {
       case '6a':
         header("Location:task_oops/task6/task6.php");
         break;
+
+      case '6b':
+        header("Location:task_oops/task6_composer/task6.php");
+        break;
     }
   }
 } else {
