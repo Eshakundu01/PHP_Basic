@@ -46,6 +46,10 @@ if ($_SESSION['user'] != "") {
         header("Location:task_oops/task5/task5.php");
         break;
 
+      case '5b':
+        header("Location:task_oops/task5_composer/task5.php");
+        break;
+
       case '6a':
         header("Location:task_oops/task6/task6.php");
         break;
