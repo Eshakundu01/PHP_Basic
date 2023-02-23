@@ -56,7 +56,7 @@ if (isset($_POST["submit"])) {
   } else{
     $_SESSION['file'] = $file_store;
     $_SESSION['fullname'] = $full_name;
-    // header ("Location:result.php");
+    header ("Location:result.php");
   }
 }
 
