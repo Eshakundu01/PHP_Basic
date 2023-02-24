@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PHP_1</title>
-  <link rel="stylesheet" type="text/css" href="../css/style2.css">
+  <link rel="stylesheet" type="text/css" href="../../css/style1.css">
 </head>
 <body>
   <?php
   
-  require 'emailvalidation.php';
+  require 'verification.php';
 
   ?>
 
@@ -19,7 +19,7 @@
     <div class="form1">
       <h1 class="head">WELCOME</h1>
       <h3 class="head2">Connect Us</h3>
-      <form method="post" action="task5.php" enctype="multipart/form-data">
+      <form method="post" action="task1.php" enctype="multipart/form-data">
 
         <label for="fname">First name:</label>
         <input type="text" id="fname" name="fname" class="input" required <?php if (!empty($first_name)) {

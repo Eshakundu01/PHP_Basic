@@ -47,7 +47,7 @@ if ($_SESSION['user'] != "") {
         break;
 
       case '5b':
-        header("Location:task_oops/task5_composer/task5.php");
+        header("Location:composer/guzzletask/task2.php");
         break;
 
       case '6a':
@@ -55,7 +55,7 @@ if ($_SESSION['user'] != "") {
         break;
 
       case '6b':
-        header("Location:task_oops/task6_composer/task6.php");
+        header("Location:composer/fpdftask/task1.php");
         break;
     }
   }

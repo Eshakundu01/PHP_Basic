@@ -2,9 +2,18 @@
 
 session_start();
 
+//Getting data from form
 $file_store = $_SESSION['file'];
 $grade = $_SESSION['grade'];
 $subject = $_SESSION['subject'];
+
+//Sending data to PDF page
+$_SESSION["name"] = $_SESSION["fullname"];
+$_SESSION['img'] = $file_store;
+$_SESSION['marks'] = $grade;
+$_SESSION['course'] = $subject;
+$_SESSION['phone']  = $_SESSION['ph_no'];
+$_SESSION['email'] = $_SESSION['emailId'];
 
 ?>
 
@@ -15,14 +24,13 @@ $subject = $_SESSION['subject'];
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Preview</title>
-  <link rel="stylesheet" type="text/css" href="../css/style2.css">
+  <link rel="stylesheet" type="text/css" href="../../css/style1.css">
 </head>
 <body>
   <div class="container">
     <div class="result">
       <h2>
         <?php
-        //Viewing image file
         echo "<img src='$file_store' style='width:150px;height:150px; border-radius:50%'><br>"; 
         echo "Hello!\n";
         ?>
@@ -52,6 +60,9 @@ $subject = $_SESSION['subject'];
          $sn += 1; 
         }?>
       </table>
+      <a href="download.php">
+        <button type="submit" id="download" name="download" class="generate">Download PDF</button>
+      </a>
     </div>
   </div>
 </body>

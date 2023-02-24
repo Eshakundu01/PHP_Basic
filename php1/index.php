@@ -53,8 +53,8 @@
 
           <ul class="list">
             <li><h2>Using Composer</h2></li>
-            <li><a href="task_oops/task5_composer/task5.php">Task5a</a></li>
-            <li><a href="task_oops/task6_composer/task6.php">Task6a</a></li>
+            <li><a href="composer/fpdftask/task1.php">Task1</a></li>
+            <li><a href="composer/guzzletask/task2.php">Task2</a></li>
           </ul>
         </div>
       </div>

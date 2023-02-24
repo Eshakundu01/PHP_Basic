@@ -227,3 +227,11 @@ body {
   padding-top: 20%;
   text-align: center;
 }
+
+.generate {
+  color: white;
+  border: none;
+  background-color: #007a82;
+  padding: 10px;
+  cursor: pointer;
+}

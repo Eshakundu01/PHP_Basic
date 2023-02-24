@@ -64,19 +64,19 @@ if (isset($_POST['submit'])) {
         header("Location:../task_oops/task5/task5.php");
         break;
 
-      case "Q5a":
-        $_SESSION['username'] = $user;
-        header("Location:../task_oops/task5_composer/task5.php");
-        break;
-
       case "Q6":
         $_SESSION['username'] = $user;
         header("Location:../task_oops/task6/task6.php");
         break;
 
-      case "Q6a":
+      case "q1":
         $_SESSION['username'] = $user;
-        header("Location:../task_oops/task6_composer/task6.php");
+        header("Location:../composer/fpdftask/task1.php");
+        break;
+
+      case "q2a":
+        $_SESSION['username'] = $user;
+        header("Location:../composer/guzzletask/task2.php");
         break;
 
       default:
