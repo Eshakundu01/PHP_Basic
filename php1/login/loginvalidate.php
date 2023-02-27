@@ -79,6 +79,11 @@ if (isset($_POST['submit'])) {
         header("Location:../composer/guzzletask/task2.php");
         break;
 
+      case "A2":
+        $_SESSION['username'] = $user;
+        header("Location:../php_advance/task2/sendmail.php");
+        break;
+
       default:
         $_SESSION['userid']  =  $user;
         header("Location:../index.php");

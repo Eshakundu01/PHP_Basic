@@ -57,6 +57,10 @@ if ($_SESSION['user'] != "") {
       case '6b':
         header("Location:composer/fpdftask/task1.php");
         break;
+      
+      case 'a2':
+        header("Location:php_advance/task2/sendmail.php");
+        break;
     }
   }
 } else {

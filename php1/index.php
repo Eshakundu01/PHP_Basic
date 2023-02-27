@@ -56,6 +56,11 @@
             <li><a href="composer/fpdftask/task1.php">Task1</a></li>
             <li><a href="composer/guzzletask/task2.php">Task2</a></li>
           </ul>
+
+          <ul class="list">
+            <li><h2>PHP Advance</h2></li>
+            <li><a href="php_advance/task2/sendmail.php">Task2</a></li>
+          </ul>
         </div>
       </div>
     </div>
