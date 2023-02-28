@@ -59,6 +59,7 @@
 
           <ul class="list">
             <li><h2>PHP Advance</h2></li>
+            <li><a href="php_advance/task1/previewpage.php">Task1</a></li>
             <li><a href="php_advance/task2/sendmail.php">Task2</a></li>
           </ul>
         </div>

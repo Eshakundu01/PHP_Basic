@@ -58,6 +58,10 @@ if ($_SESSION['user'] != "") {
         header("Location:composer/fpdftask/task1.php");
         break;
       
+      case 'a1':
+        header("Location:php_advance/task1/previewpage.php");
+        break;
+
       case 'a2':
         header("Location:php_advance/task2/sendmail.php");
         break;

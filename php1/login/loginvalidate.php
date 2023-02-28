@@ -79,6 +79,12 @@ if (isset($_POST['submit'])) {
         header("Location:../composer/guzzletask/task2.php");
         break;
 
+      case "A1":
+        $_SESSION['username'] = $user;
+        header("Location:../php_advance/task1/previewpage.php");
+        break;
+  
+
       case "A2":
         $_SESSION['username'] = $user;
         header("Location:../php_advance/task2/sendmail.php");
