@@ -27,7 +27,7 @@
       </div>
       <div class="content">
         <h1 class="heading"><?php echo $heading[$i]; ?></h1>
-        <p class="info"><?php echo $para[$i]; ?></p>
+        <div class="info"><?php echo $para[$i]; ?></div>
         <a href="<?php echo $links[$i]; ?>" class="btn">EXPLORE MORE</a>
       </div>
     </div>
@@ -39,7 +39,7 @@
     <div class="flexbox">
       <div class="content">
         <h1 class="heading"><?php echo $heading[$i]; ?></h1>
-        <p class="info"><?php echo $para[$i]; ?></p>
+        <div class="info"><?php echo $para[$i]; ?></div>
         <a href="<?php echo $links[$i]; ?>" class="btn">EXPLORE MORE</a>
       </div>
       <div class="content">
