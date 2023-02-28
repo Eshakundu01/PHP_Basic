@@ -17,7 +17,7 @@
   <div class="container">
 
     <?php
-    for ($i=0; $i<count($data_obj->bodyArray()); $i++) {
+    for ($i=0; $i<count($para); $i++) {
       if ($i%2 == 0) {
     ?>
 
@@ -40,7 +40,7 @@
       <div class="content">
         <h1 class="heading"><?php echo $heading[$i]; ?></h1>
         <p class="info"><?php echo $para[$i]; ?></p>
-        <a href="" class="btn">EXPLORE MORE</a>
+        <a href="<?php echo $links[$i]; ?>" class="btn">EXPLORE MORE</a>
       </div>
       <div class="content">
         <img src="<?php echo $image[$i]; ?>" alt="contentpicture" class="pic">

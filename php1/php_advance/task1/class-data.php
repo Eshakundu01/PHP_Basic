@@ -56,7 +56,7 @@ class DataCollect {
    * @return void
    */
   public function setImage($data):void {
-    array_push($this->arr,"https://www.innoraft.com/".$data['data']['attributes']['uri']['url']);
+    array_push($this->arr,"https://www.innoraft.com/" . $data['data']['attributes']['uri']['url']);
   }
 
 
@@ -79,7 +79,7 @@ class DataCollect {
   public function linksArray():array {
     for ($i=0; $i<count($this->info['data']); $i++) {
       if ($this->info['data'][$i]['attributes']['field_services'] != null) {
-        $links[] = $this->info['data'][$i]['attributes']['path']['alias'];
+        $links[] = 'https://www.innoraft.com' . $this->info['data'][$i]['attributes']['path']['alias'];
       }
     }
     return $links;
