@@ -139,6 +139,7 @@ body {
   border: none;
   cursor: pointer;
   font-weight: 600;
+  margin-top: 20px;
 }
 
 .join {
@@ -148,7 +149,7 @@ body {
 
 .register {
   color: rgb(173, 1, 1);
-  text-decoration: none;
+  padding: 10px;
 }
 
 .flex {
@@ -234,4 +235,10 @@ body {
   background-color: #007a82;
   padding: 10px;
   cursor: pointer;
+}
+
+.pass {
+  display: flex;
+  justify-content: end;
+  padding-right: 20%;
 }

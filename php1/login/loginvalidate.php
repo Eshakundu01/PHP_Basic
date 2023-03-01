@@ -5,11 +5,25 @@ session_start();
 $error  = "";
 $user = "";
 
+require 'userdb.php';
+
 if (isset($_POST['submit'])) {
   $user = $_POST['user'];
   $password = $_POST['pass'];
+
+  $sql = "select username, email, passcode from Users";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      $client[] = $row['username'];
+      $pass[] = $row['passcode'];
+    }
+  } 
+
   // Validates the username and password
-  if (!($user == 'Eshakundu1' and $password == 'esha08')) {
+  if (!(in_array($user, $client) and in_array($password, $pass))) {
     $error  = "Invalid Username or password entered";
   } else {
     // The login credential are passed to the each page and it opens on login
