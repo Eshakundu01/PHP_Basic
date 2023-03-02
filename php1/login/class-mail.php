@@ -77,14 +77,15 @@ class Mail {
    *
    */
   public function sendMail() {
+    require 'password.php';
     $mail = new PHPMailer(true);  
     // Set up PHPMailer to use SMTP
     $mail->isSMTP();
     $mail->Host = "smtp.gmail.com";
     $mail->SMTPAuth = true;
-    $mail->Username = "esha.kundu@innoraft.com";
+    $mail->Username = $mailadd;
     // Password to use for SMTP authentication 
-    $mail->Password = "xxxxxxxxxxxxxxx";
+    $mail->Password = $pass;
     $mail->SMTPSecure = "tls";  
     $mail->Port = 587;  
 
@@ -110,14 +111,15 @@ class Mail {
    *
    */
   public function otpSend() {
+    require 'password.php';
     $mail = new PHPMailer(true);  
     // Set up PHPMailer to use SMTP
     $mail->isSMTP();
     $mail->Host = "smtp.gmail.com";
     $mail->SMTPAuth = true;
-    $mail->Username = "esha.kundu@innoraft.com";
+    $mail->Username = $mailadd;
     // Password to use for SMTP authentication 
-    $mail->Password = "xxxxxxxxxxxxxxx";
+    $mail->Password = $pass;
     $mail->SMTPSecure = "tls";  
     $mail->Port = 587;  
 

@@ -3,3 +3,4 @@
 *.pdf
 *.png
 vendor/
+php1/login/password.php
