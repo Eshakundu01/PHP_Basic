@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
   $mail_obj = new Mail($emailid);
   $error['mail_error'] = $mail_obj->errorCheck();
   if ($error['mail_error'] == false) {
-	  if ($mail_obj->verifyMail()) {
+    if ($mail_obj->verifyMail()) {
       $error['mail_error'] = $mail_obj->verifyMail();
     }
   }
