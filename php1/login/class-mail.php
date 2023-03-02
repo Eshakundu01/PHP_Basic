@@ -117,7 +117,7 @@ class Mail {
     $mail->SMTPAuth = true;
     $mail->Username = "esha.kundu@innoraft.com";
     // Password to use for SMTP authentication 
-    $mail->Password = "xxxxxxxxxx";
+    $mail->Password = "xxxxxxxxxxxxxxx";
     $mail->SMTPSecure = "tls";  
     $mail->Port = 587;  
 
@@ -128,8 +128,10 @@ class Mail {
     $otp = rand(1000,9999);
     $_SESSION['pin'] = $otp;
 
-    $mail->Subject = "Your OTP";
-    $mail->Body = $otp;
+    $mail->isHTML(true);
+
+    $mail->Subject = "OTP GENERATED TO RESET PASSWORD";
+    $mail->Body = 'Enter the below generated otp in the page to reset your password.<br><b>OTP : <b>' . $otp;
 
     try {
       $mail->send();
