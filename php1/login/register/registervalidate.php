@@ -1,8 +1,8 @@
 <?php
 
-require 'class-mail.php';
-require 'class-password.php';
-require 'userdb.php';
+require '../class-mail.php';
+require '../class-password.php';
+require '../userdb.php';
 
 
 $error = array('mail_error' => '', 'pass_error' => '', 'register_error' => '');

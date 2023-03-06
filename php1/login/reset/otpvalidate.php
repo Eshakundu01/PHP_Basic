@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+require '../class-mail.php';
 
 $error = "";
 
@@ -10,5 +10,10 @@ if (isset($_POST['submit'])) {
   } else {
     $error = "Incorrect OTP entered";
   }
+}
+
+if (isset($_POST['resend'])) {
+  $mail_obj = new Mail($_SESSION['id']);
+  $mail_obj->otpSend();
 }
 ?>

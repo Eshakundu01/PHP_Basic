@@ -242,3 +242,15 @@ body {
   justify-content: end;
   padding-right: 20%;
 }
+
+.loginbtn:disabled {
+  background-color: #599ddd;
+  border-radius: 45px;
+  color: lightgray;
+  font-size: 15px;
+  padding: 15px 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 20px;
+}

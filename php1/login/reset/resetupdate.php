@@ -3,8 +3,8 @@
 session_start();
 $mail = $_SESSION['id'];
 
-require 'class-password.php';
-require 'userdb.php';
+require '../class-password.php';
+require '../userdb.php';
 
 $pass_error = "";
 

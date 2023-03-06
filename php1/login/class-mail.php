@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-require '../vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 /**
  * Validating the email Id then verifying the email
@@ -34,7 +34,7 @@ class Mail {
    *
    * @return string
    */
-  public function errorCheck(): string {
+  public function errorCheck():string {
     if (empty($this->mail)) {
       $msg = "Email cannot be empty";
       return $msg;
@@ -51,7 +51,7 @@ class Mail {
    *
    * @return mixed
    */
-  public function verifyMail(): mixed {
+  public function verifyMail():mixed {
     $client = new GuzzleHttp\Client();
     $response = $client->request('GET', 'https://api.apilayer.com/email_verification/check?email='.$this->mail, [
       'headers' => [
@@ -74,9 +74,10 @@ class Mail {
    * 
    * Sending a mail using SMTP and PHPMailer
    *
+   * @return void
    *
    */
-  public function sendMail() {
+  public function sendMail():void {
     require 'password.php';
     $mail = new PHPMailer(true);  
     // Set up PHPMailer to use SMTP
@@ -108,9 +109,10 @@ class Mail {
    * 
    * Generating OTP and sending in mail
    *
+   * @return int
    *
    */
-  public function otpSend() {
+  public function otpSend():int {
     require 'password.php';
     $mail = new PHPMailer(true);  
     // Set up PHPMailer to use SMTP
@@ -137,7 +139,7 @@ class Mail {
 
     try {
       $mail->send();
-      echo "";
+      return $otp;
     } catch (Exception $e) {
       echo "Mailer Error: " . $mail->ErrorInfo;
     }
