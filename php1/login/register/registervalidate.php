@@ -24,9 +24,9 @@ if (isset($_POST['submit'])) {
   $mail_obj = new Mail($emailid);
   $error['mail_error'] = $mail_obj->errorCheck();
   if ($error['mail_error'] == false) {
-    if ($mail_obj->verifyMail()) {
-      $error['mail_error'] = $mail_obj->verifyMail();
-    }
+    // if ($mail_obj->verifyMail()) {
+    //   $error['mail_error'] = $mail_obj->verifyMail();
+    // }
   }
 
   if (array_filter($error)) {
@@ -37,7 +37,7 @@ if (isset($_POST['submit'])) {
       $sql = "insert into Users values ('$user', '$emailid' , '$pass')";
       try {
         if ($conn->query($sql) === TRUE) {
-          header("Location:login.php");
+          header("Location:../login.php");
         } else {
           echo "Error creating table: " . $conn->error;
         }

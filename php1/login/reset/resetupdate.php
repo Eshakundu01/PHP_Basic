@@ -25,7 +25,7 @@ if (isset($_POST['submit'])) {
   } else {
     $sql = "update Users set passcode='$pass' where email='$mail'";
     if ($conn->query($sql) === TRUE) {
-      header("Location:login.php");
+      header("Location:../login.php");
     } else {
       echo "Error creating table: " . $conn->error;
     }
