@@ -15,8 +15,8 @@
     <div class="login">
       <h1 class="head">Enter the OTP</h1>
       <form action="otp.php" method="post">
-        <span class="error" id="msg"><?php echo $error; ?></span><br>
-        OTP: <input type="text" name="otp" class="input"><br>
+        <span class="error" id="msg"><?php if (isset($error)) {echo $error;} ?></span>
+        <div>OTP: <input type="text" name="otp" class="input"></div>
         <button type="submit" name="submit" class="loginbtn">Submit</button>
         <button type="submit" name="resend" class="loginbtn" id="resend">Resend</button>
       </form>
@@ -31,7 +31,7 @@
         if (!value) {
 					$('#resend').prop("disabled",true);
         } else {
-            $('#resend').prop("disabled",false);
+          $('#resend').prop("disabled",false);
         }
       })
     });

@@ -4,7 +4,8 @@
  * Validating the email Id then verifying the email
  * 
  */ 
-class Password {
+class Password 
+{
   public $pass;
   /**
    * 
@@ -26,7 +27,7 @@ class Password {
   public function checkPassword() {
     $uppercase = preg_match('@[A-Z]@', $this->pass);
     $lowercase = preg_match('@[a-z]@', $this->pass);
-    $number    = preg_match('@[0-9]@', $this->pass);
+    $number = preg_match('@[0-9]@', $this->pass);
     $specialChars = preg_match('@[^\w]@', $this->pass);
     
     if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($this->pass) < 8) {

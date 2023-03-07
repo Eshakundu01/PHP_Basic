@@ -110,6 +110,8 @@ if (isset($_POST['submit'])) {
         break;
     }
   }
+
+  $conn->close();
 } 
 
 if  (isset($_POST['cancel']))  {

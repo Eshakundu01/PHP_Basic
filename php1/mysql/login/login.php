@@ -8,17 +8,21 @@
   <link rel="stylesheet" type="text/css" href="../../css/style1.css">
 </head>
 <body>
-  <?php require("loginvalidate.php"); ?>
+  <?php require 'loginvalidate.php'; ?>
 
   <div class="container">
     <div class="login">
       <h1 class="head">LOGIN</h1>
       <form action="login.php" method="post">
-        <span class="error"><?php echo $error; ?></span><br>
-        USERNAME: <input type="text" name="user" class="input" required><br>
-        PASSWORD: <input type="password" name="pass" class="input" required><br>
+        <span class="error"><?php if (isset($error)) {echo $error;} ?></span>
+
+        <div>USERNAME: <input type="text" name="user" class="input" required></div>
+        <div>PASSWORD: <input type="password" name="pass" class="input" required></div>
+
         <span class="pass"><a href="../reset/forgot.php">Forgot Password?</a></span>
-        <span class="register">Don't have a account?<a href="../register/register.php">Register Now</a></span><br>
+
+        <div class="register">Don't have a account?<a href="../register/register.php">Register Now</a></div>
+
         <button type="submit" name="submit" class="loginbtn">LOGIN</button>
         <input type="submit" name="cancel" value="Cancel" formnovalidate class="loginbtn">
       </form>

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 require '../class-mail.php';
 require '../userdb.php';
 
@@ -20,14 +22,18 @@ if (isset($_POST['submit'])) {
   $error = $mail_obj->errorCheck();
   if ($error == false) {
     if (in_array($_POST['mail'], $mail)) {
-      if ($mail_obj->otpSend()) {
+      $otp = rand(1000, 9999);
+      if ($mail_obj->otpSend($otp) == "") {
         header("Location:otp.php");
+        $_SESSION['code'] = $otp;
         $_SESSION['id'] = $_POST['mail'];
       }
     } else {
       $error = "Not registered mail address entered!";
     }
   }
+
+  $conn->close();
 }
 
 ?>

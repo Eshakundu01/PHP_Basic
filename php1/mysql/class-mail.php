@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 use GuzzleHttp\Client;
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -14,14 +12,15 @@ require '../../vendor/autoload.php';
  * Validating the email Id then verifying the email
  * 
  */ 
-class Mail {
+class Mail 
+{
   public $mail;
 
   /**
    * 
    * Constructor
    *
-   * @param string $mail
+   * @param string $mail: The mail is used here
    *
    */
   public function __construct($mail) {
@@ -109,10 +108,11 @@ class Mail {
    * 
    * Generating OTP and sending in mail
    *
-   * @return int
+   * @param int $pin: The pin which will be used to validate.
+   * @return void
    *
    */
-  public function otpSend():int {
+  public function otpSend($pin):void {
     require 'password.php';
     $mail = new PHPMailer(true);  
     // Set up PHPMailer to use SMTP
@@ -129,17 +129,14 @@ class Mail {
 
     $mail->addAddress($this->mail);
 
-    $otp = rand(1000,9999);
-    $_SESSION['pin'] = $otp;
-
     $mail->isHTML(true);
 
     $mail->Subject = "OTP GENERATED TO RESET PASSWORD";
-    $mail->Body = 'Enter the below generated otp in the page to reset your password.<br><b>OTP : <b>' . $otp;
+    $mail->Body = 'Enter the below generated otp in the page to reset your password.<br><b>OTP : <b>' . $pin;
 
     try {
       $mail->send();
-      return $otp;
+      echo "";
     } catch (Exception $e) {
       echo "Mailer Error: " . $mail->ErrorInfo;
     }

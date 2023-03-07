@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
   } else {
     if ($mail_obj->sendMail() == "") {
       // sql to create table
-      $sql = "insert into Users values ('$user', '$emailid' , '$pass')";
+      $sql = "insert into Users values ('$user', '$emailid', '$pass')";
       try {
         if ($conn->query($sql) === TRUE) {
           header("Location:../login/login.php");
@@ -44,6 +44,8 @@ if (isset($_POST['submit'])) {
       } catch (Exception $e) {
         $error['register_error'] = "You are already a registered user, try login into the page!";
       }
+
+      $conn->close();
     }
   }
 }

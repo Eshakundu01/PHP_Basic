@@ -19,9 +19,9 @@
       <h1 class="head">Forgot Password!</h1>
       <p>Enter your registered mail address to receive OTP verification code.</p>
       <form action="forgot.php" method="post">
-        <span class="error"><?php echo $error; ?></span><br>
-        EMAIL-ID: <input type="text" name="mail" class="input" required <?php if (!empty($_POST['email'])) {
-          echo "value=\"" . $_POST['email'] ."\""; }?>><br>
+        <span class="error"><?php if (isset($error)) {echo $error;} ?></span>
+        <div>EMAIL-ID: <input type="text" name="mail" class="input" required <?php if (!empty($_POST['email'])) {
+          echo "value=\"" . $_POST['email'] . "\""; }?>></div>
         <button type="submit" name="submit" class="loginbtn">Send Mail</button>
       </form>
     </div>

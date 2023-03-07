@@ -50,6 +50,7 @@ body {
 
 .error {
   color: rgb(226, 22, 22);
+  display: inline-block;
 }
 
 .result {

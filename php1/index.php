@@ -23,8 +23,8 @@
           <li><a href="index.php" class="nav">Home</a></li>
           <li><a href="profile.php" class="nav">Profile</a></li>
           <li><a href="query.php" class="nav">Query</a></li>
-          <li><a href="login/login.php" class="nav log">LOGIN</a></li>
-          <li><a href="logout.php?logout" class="nav logout">LOGOUT</a></li>
+          <li><a href="mysql/login/login.php" class="nav log">LOGIN</a></li>
+          <li><a href="mysql/logout/logout.php" class="nav logout">LOGOUT</a></li>
         </ul>
       </div>
     </div>

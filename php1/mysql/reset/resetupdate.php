@@ -29,6 +29,8 @@ if (isset($_POST['submit'])) {
     } else {
       echo "Error creating table: " . $conn->error;
     }
+
+    $conn->close();
   }
 }
 
