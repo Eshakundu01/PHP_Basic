@@ -31,17 +31,15 @@ class Mail
    * 
    * Checking the email pattern without API
    *
-   * @return string
+   * @return mixed
    */
-  public function errorCheck():string {
+  public function errorCheck():mixed {
     if (empty($this->mail)) {
-      $msg = "Email cannot be empty";
-      return $msg;
+      return "Email cannot be empty";
     } elseif (!filter_var($this->mail, FILTER_VALIDATE_EMAIL)) {
-      $msg = "Invalid email format used";
-      return $msg;
+      return "Invalid email format used";
     }
-    return "";
+    return false;
   }
 
   /**
@@ -62,10 +60,9 @@ class Mail
     $validationResult = json_decode($result, true);
     if ($validationResult["format_valid"] && $validationResult["smtp_check"]) {
       $_SESSION['emailId']=$this->mail;
-      return "";
+      return false;
     } else {
-      $msg = "The provided email can't be verified!";
-      return $msg;
+      return "The provided email can't be verified!";
     }
   }
 
@@ -73,11 +70,11 @@ class Mail
    * 
    * Sending a mail using SMTP and PHPMailer
    *
-   * @return void
+   * @return bool
    *
    */
-  public function sendMail():void {
-    require 'password.php';
+  public function sendMail():bool {
+    require 'credentials.php';
     $mail = new PHPMailer(true);  
     // Set up PHPMailer to use SMTP
     $mail->isSMTP();
@@ -98,7 +95,7 @@ class Mail
 
     try {
       $mail->send();
-      echo "";
+      return true;
     } catch (Exception $e) {
       echo "Mailer Error: " . $mail->ErrorInfo;
     }
@@ -112,8 +109,8 @@ class Mail
    * @return void
    *
    */
-  public function otpSend($pin):void {
-    require 'password.php';
+  public function otpSend($pin):bool {
+    require 'credentials.php';
     $mail = new PHPMailer(true);  
     // Set up PHPMailer to use SMTP
     $mail->isSMTP();
@@ -136,7 +133,7 @@ class Mail
 
     try {
       $mail->send();
-      echo "";
+      return true;
     } catch (Exception $e) {
       echo "Mailer Error: " . $mail->ErrorInfo;
     }

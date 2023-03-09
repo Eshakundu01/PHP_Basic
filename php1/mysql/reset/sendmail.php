@@ -23,10 +23,12 @@ if (isset($_POST['submit'])) {
   if ($error == false) {
     if (in_array($_POST['mail'], $mail)) {
       $otp = rand(1000, 9999);
-      if ($mail_obj->otpSend($otp) == "") {
+      if ($mail_obj->otpSend($otp)) {
         header("Location:otp.php");
         $_SESSION['code'] = $otp;
         $_SESSION['id'] = $_POST['mail'];
+      } else {
+        $error = "Problem occurred while sending mail";
       }
     } else {
       $error = "Not registered mail address entered!";

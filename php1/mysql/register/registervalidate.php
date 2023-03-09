@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
   if (array_filter($error)) {
     // echo "prints errors after submit";
   } else {
-    if ($mail_obj->sendMail() == "") {
+    if ($mail_obj->sendMail()) {
       // sql to create table
       $sql = "insert into Users values ('$user', '$emailid', '$pass')";
       try {
@@ -46,6 +46,8 @@ if (isset($_POST['submit'])) {
       }
 
       $conn->close();
+    } else {
+      $error['register_error'] = "Problem occurred while sending mail";
     }
   }
 }

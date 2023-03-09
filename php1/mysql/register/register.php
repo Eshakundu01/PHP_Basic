@@ -26,7 +26,7 @@
         <div>CONFIRM PASSWORD: <input type="password" name="confirm" class="input" required></div>
         
         <span class="error"><?php if (isset($error['pass_error'])) {echo $error['pass_error'];} ?></span>
-        <button type="submit" name="submit" class="loginbtn">Register</button>
+        <div><button type="submit" name="submit" class="loginbtn">Register</button></div>
       </form>
     </div>
   </div>
