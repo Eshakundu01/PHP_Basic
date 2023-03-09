@@ -3,4 +3,4 @@
 *.pdf
 *.png
 vendor/
-php1/mysql/password.php
+php1/mysql/credentials.php
