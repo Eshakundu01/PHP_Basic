@@ -9,7 +9,7 @@ session_start();
 
 if ($_SESSION['user'] == "") {
   if (!isset($_SESSION['username'])) {
-    header('Location:../../login/login.php');
+    header('Location:../../mysql/login/login.php');
     $_SESSION['question']  =  "A1";
   }
 }
